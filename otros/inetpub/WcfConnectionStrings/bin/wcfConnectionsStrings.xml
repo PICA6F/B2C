@@ -1,0 +1,74 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+wcfConnectionsStrings
+</name>
+</assembly>
+<members>
+<member name="M:Heon.CryptoServer.IConnectionsStrings.GetConnectionString(System.String,System.String)">
+	<summary>
+ Retorna una cadena de conexión encriptada de acuerdo a la dupla definida
+ </summary>
+	<param name="Server">Servidor de la cadena de conexión</param>
+	<param name="ModuleId">Módulo de la cadena de conexión</param>
+	<returns>La cadena de conexión encriptada.</returns>
+	<remarks></remarks>
+</member><member name="M:Heon.CryptoServer.IConnectionsStrings.CacheReset">
+	<summary>
+ Borrar el cache de lectura, para obligar a leer de nuevo del archivo
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Heon.CryptoServer.IConnectionsStrings">
+	<summary>
+ Interfaz que permite obtener cadenas de conexión del servidor de cadenas.  
+ Esta diseñada para ser utilizada únicamente dentro de la capa de datos
+ y no debe ser llamada desde otro lado.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Heon.CryptoServer.GetConnectionsStrings.conn">
+	<summary>
+ Mantiene una referencia al administrador de cadenas de conexión
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Heon.CryptoServer.GetConnectionsStrings.#ctor">
+	<summary>
+ Inicializa el administrador de cadenas de conexión
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Heon.CryptoServer.GetConnectionsStrings.GetConnectionString(System.String,System.String)">
+	<summary>
+ Retorna una cadena de conexión de acuerdo a la dupla definida.  Si no existe retorna una cadena de conexión vacia
+ </summary>
+	<param name="Server">Servidor al cual hace referencia la cadena de conexión a devolver</param>
+	<param name="ModuleId">Módulo al cual hace referencia la cadena de conexión a devolver</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Heon.CryptoServer.GetConnectionsStrings.CacheReset">
+	<summary>
+ Permite a petición del cliente, borrar el cache y volver a leer de disco.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Heon.CryptoServer.GetConnectionsStrings">
+	<summary>
+ Clase que implementa la Interfaz IConnectionsStrings para ser utilizada en el servicio WCF que proporciona las 
+ cadenas de conexión.
+ Las cadenas que devuelven estan encriptadas
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Heon.CryptoServer.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Heon.CryptoServer.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Heon.CryptoServer.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

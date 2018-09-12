@@ -1,0 +1,811 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Heon.Comun.Datos
+</name>
+</assembly>
+<members>
+<member name="P:Heon.Comun.Datos.CapaDatos.DbTran">
+	<summary>
+ Retorna un objeto de tipo DbTransaction con la transaccion creada
+ desde la conexion actual
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Heon.Comun.Datos.CapaDatos.DTSGlobalVariables">
+	<summary>
+ Define los valores necesarios para sobrescribir las variables globales de una DTS
+ </summary>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.CreateConnection">
+	<summary>
+		<para>Crea y abre una conexion a la base de datos</para>
+	</summary>
+	<seealso cref="T:System.Data.Common.DbConnection"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.CloseConnection">
+	<summary>
+		<para>Cierra y elimina la conexion a la base de datos</para>
+	</summary>
+	<seealso cref="T:System.Data.Common.DbConnection"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.GetDataSourceName">
+	<summary> 
+ Retorna el Nombre del Servidor de la cadena de Conexión. 
+ </summary>
+	<returns>Nombre del Servidor de la Cadena de Conexión</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.GetDataBaseName">
+	<summary> 
+ Retorna el Nombre de la Base de Datos, de acuerdo al servidor seleccionado 
+ </summary>
+	<returns>Nombre de la Base de Datos dentro del Servidor</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.BeginTransaction">
+	<summary>
+ Crea una transaccion con la conexion actual.
+ Antes de llamar este método debe llamar el método CreateConnection
+ para crear y abrir una conexion a la base de datos
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.CommitTransaction">
+	<summary>
+ Realiza un Commit a la transaccion actual.
+ Antes de llamar a este método se debió iniciar una transaccion
+ con el método BeginTransaction
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.RollBackTransaction">
+	<summary>
+ Realiza un Rollback a la transaccion actual.
+ Antes de llamar a este método se debió iniciar una transaccion
+ con el método BeginTransaction
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteDTS(System.String,System.String,System.String,System.String,System.String,Heon.Comun.Datos.CapaDatos.DTSGlobalVariables[])">
+	<summary> 
+ Carga una DTS y la ejecuta 
+ </summary>
+	<param name="UNCFile">Ubicación donde se encuentra la DTS. 
+ Si solo se especifica nombre, la DTS debe estar en el mismo directorio donde se encuentra la 
+ DLL ConnectDB</param>
+	<param name="DTSPassword">Password para abrir la DTS</param>
+	<param name="DTSPackageID">Identificador del paquete de la DTS</param>
+	<param name="DTSVersionID">Versión de la DTS dentro del paquete</param>
+	<param name="DTSname">Nombre de la DTS</param>
+	<param name="DTSVariables">Arreglo de las variables globales de la DTS a Sobreescribir</param>
+	<returns>True si la DTS se ejecutó exitosamente, false en caso contrario</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteDTS(Interop.DTS.PackageClass,Heon.Comun.Datos.CapaDatos.DTSGlobalVariables[])">
+	<summary> 
+ Ejecuta la DTS Cargada previamente 
+ </summary>
+	<param name="DTS">DTS a Ejecutar</param>
+	<param name="DTSVariables">Arreglo de las variables globales de la DTS a Sobreescribir</param>
+	<returns>True si la DTS se ejecutó exitosamente, false en caso contrario</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.AddInParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType)">
+	<summary>
+ Adds a new In <see cref="T:System.Data.Common.DbParameter"/> object to the given <paramref name="command"/>.
+ </summary>
+	<param name="command">The command to add the in parameter.</param>
+	<param name="name"><para>The name of the parameter.</para></param>
+	<param name="dbType"><para>One of the <see cref="T:System.Data.DbType"/> values.</para></param>
+	<remarks>
+		<para>This version of the method is used when you can have the same parameter object multiple times with different values.</para>
+	</remarks>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.AddInParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Object)">
+	<summary>
+ Adds a new In <see cref="T:System.Data.Common.DbParameter"/> object to the given <paramref name="command"/>.
+ </summary>
+	<param name="command">The commmand to add the parameter.</param>
+	<param name="name"><para>The name of the parameter.</para></param>
+	<param name="dbType"><para>One of the <see cref="T:System.Data.DbType"/> values.</para></param>
+	<param name="value"><para>The value of the parameter.</para></param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.AddInParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.String,System.Data.DataRowVersion)">
+	<summary>
+ Adds a new In <see cref="T:System.Data.Common.DbParameter"/> object to the given <paramref name="command"/>.
+ </summary>
+	<param name="command">The command to add the parameter.</param>
+	<param name="name"><para>The name of the parameter.</para></param>
+	<param name="dbType"><para>One of the <see cref="T:System.Data.DbType"/> values.</para></param>
+	<param name="sourceColumn"><para>The name of the source column mapped to the DataSet and used for loading or returning the value.</para></param>
+	<param name="sourceVersion"><para>One of the <see cref="T:System.Data.DataRowVersion"/> values.</para></param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.AddOutParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Int32)">
+	<summary>
+ Adds a new Out <see cref="T:System.Data.Common.DbParameter"/> object to the given <paramref name="command"/>.
+ </summary>
+	<param name="command">The command to add the out parameter.</param>
+	<param name="name"><para>The name of the parameter.</para></param>
+	<param name="dbType"><para>One of the <see cref="T:System.Data.DbType"/> values.</para></param>
+	<param name="size"><para>The maximum size of the data within the column.</para></param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.AddParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Object)">
+	<summary>
+ Adds a new In <see cref="T:System.Data.Common.DbParameter"/> object to the given <paramref name="command"/>.
+ </summary>
+	<param name="command">The command to add the parameter.</param>
+	<param name="name"><para>The name of the parameter.</para></param>
+	<param name="dbType"><para>One of the <see cref="T:System.Data.DbType"/> values.</para></param>
+	<param name="size"><para>The maximum size of the data within the column.</para></param>
+	<param name="direction"><para>One of the <see cref="T:System.Data.ParameterDirection"/> values.</para></param>
+	<param name="nullable"><para>Avalue indicating whether the parameter accepts <see langword="null"/> (<b>Nothing</b> in Visual Basic) values.</para></param>
+	<param name="precision"><para>The maximum number of digits used to represent the <paramref name="value"/>.</para></param>
+	<param name="scale"><para>The number of decimal places to which <paramref name="value"/> is resolved.</para></param>
+	<param name="sourceColumn"><para>The name of the source column mapped to the DataSet and used for loading or returning the <paramref name="value"/>.</para></param>
+	<param name="sourceVersion"><para>One of the <see cref="T:System.Data.DataRowVersion"/> values.</para></param>
+	<param name="value"><para>The value of the parameter.</para></param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.AddParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Data.ParameterDirection,System.String,System.Data.DataRowVersion,System.Object)">
+	<summary>
+		<para>Adds a new instance of a <see cref="T:System.Data.Common.DbParameter"/> object to the command.</para>
+	</summary>
+	<param name="command">The command to add the parameter.</param>
+	<param name="name"><para>The name of the parameter.</para></param>
+	<param name="dbType"><para>One of the <see cref="T:System.Data.DbType"/> values.</para></param>
+	<param name="direction"><para>One of the <see cref="T:System.Data.ParameterDirection"/> values.</para></param>
+	<param name="sourceColumn"><para>The name of the source column mapped to the DataSet and used for loading or returning the <paramref name="value"/>.</para></param>
+	<param name="sourceVersion"><para>One of the <see cref="T:System.Data.DataRowVersion"/> values.</para></param>
+	<param name="value"><para>The value of the parameter.</para></param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.BuildParameterName(System.String)">
+	<summary>
+ Builds a value parameter name for the current database.
+ </summary>
+	<param name="name">The name of the parameter.</param>
+	<returns>A correctly formated parameter name.</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.DiscoverParameters(System.Data.Common.DbCommand)">
+	<summary>
+ Discovers the parameters for a <see cref="T:System.Data.Common.DbCommand"/>.
+ </summary>
+	<param name="command">The <see cref="T:System.Data.Common.DbCommand"/> to discover the parameters.</param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteDataSet(System.String,System.Object[])">
+	<summary>
+		<para>Executes the <paramref name="storedProcedureName"/> with <paramref name="parameterValues"/> and returns the results in a new <see cref="T:System.Data.DataSet"/>.</para>
+	</summary>
+	<param name="storedProcedureName">
+		<para>The stored procedure to execute.</para>
+	</param>
+	<param name="parameterValues">
+		<para>An array of paramters to pass to the stored procedure. The parameter values must be in call order as they appear in the stored procedure.</para>
+	</param>
+	<returns>
+		<para>A <see cref="T:System.Data.DataSet"/> with the results of the <paramref name="storedProcedureName"/>.</para>
+	</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteDataSet(System.Data.CommandType,System.String)">
+	<summary>
+		<para>Executes the <paramref name="commandText"/> interpreted as specified by the <paramref name="commandType"/> and returns the results in a new <see cref="T:System.Data.DataSet"/>.</para>
+	</summary>
+	<param name="commandType">
+		<para>One of the <see cref="T:System.Data.CommandType"/> values.</para>
+	</param>
+	<param name="commandText">
+		<para>The command text to execute.</para>
+	</param>
+	<returns>
+		<para>A <see cref="T:System.Data.DataSet"/> with the results of the <paramref name="commandText"/>.</para>
+	</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteDataSet(System.Data.Common.DbCommand)">
+	<summary>
+		<para>Executes the <paramref name="command"/> and returns the results in a new <see cref="T:System.Data.DataSet"/>.</para>
+	</summary>
+	<param name="command"><para>The <see cref="T:System.Data.Common.DbCommand"/> to execute.</para></param>
+	<returns>A <see cref="T:System.Data.DataSet"/> with the results of the <paramref name="command"/>.</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteDataSet(System.Data.Common.DbCommand,System.Data.Common.DbTransaction)">
+	<summary>
+		<para>Executes the <paramref name="command"/> as part of the <paramref name="transaction"/> and returns the results in a new <see cref="T:System.Data.DataSet"/>.</para>
+	</summary>
+	<param name="command"><para>The <see cref="T:System.Data.Common.DbCommand"/> to execute.</para></param>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<returns>A <see cref="T:System.Data.DataSet"/> with the results of the <paramref name="command"/>.</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteDataSet(System.Data.Common.DbTransaction,System.String,System.Object[])">
+	<summary>
+		<para>Executes the <paramref name="storedProcedureName"/> with <paramref name="parameterValues"/> as part of the <paramref name="transaction"/> and returns the results in a new <see cref="T:System.Data.DataSet"/> within a transaction.</para>
+	</summary>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<param name="storedProcedureName">
+		<para>The stored procedure to execute.</para>
+	</param>
+	<param name="parameterValues">
+		<para>An array of paramters to pass to the stored procedure. The parameter values must be in call order as they appear in the stored procedure.</para>
+	</param>
+	<returns>
+		<para>A <see cref="T:System.Data.DataSet"/> with the results of the <paramref name="storedProcedureName"/>.</para>
+	</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteDataSet(System.Data.Common.DbTransaction,System.Data.CommandType,System.String)">
+	<summary>
+		<para>Executes the <paramref name="commandText"/> as part of the given <paramref name="transaction"/> and returns the results in a new <see cref="T:System.Data.DataSet"/>.</para>
+	</summary>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<param name="commandType">
+		<para>One of the <see cref="T:System.Data.CommandType"/> values.</para>
+	</param>
+	<param name="commandText">
+		<para>The command text to execute.</para>
+	</param>
+	<returns>
+		<para>A <see cref="T:System.Data.DataSet"/> with the results of the <paramref name="commandText"/>.</para>
+	</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteNonQuery(System.String,System.Object[])">
+	<summary>
+		<para>Executes the <paramref name="storedProcedureName"/> using the given <paramref name="parameterValues"/> and returns the number of rows affected.</para>
+	</summary>
+	<param name="storedProcedureName">
+		<para>The name of the stored procedure to execute.</para>
+	</param>
+	<param name="parameterValues">
+		<para>An array of paramters to pass to the stored procedure. The parameter values must be in call order as they appear in the stored procedure.</para>
+	</param>
+	<returns>
+		<para>The number of rows affected</para>
+	</returns>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteNonQuery(System.Data.CommandType,System.String)">
+	<summary>
+		<para>Executes the <paramref name="commandText"/> interpreted as specified by the <paramref name="commandType"/> and returns the number of rows affected.</para>
+	</summary>
+	<param name="commandType">
+		<para>One of the <see cref="T:System.Data.CommandType"/> values.</para>
+	</param>
+	<param name="commandText">
+		<para>The command text to execute.</para>
+	</param>
+	<returns>
+		<para>The number of rows affected.</para>
+	</returns>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteNonQuery(System.Data.Common.DbCommand)">
+	<summary>
+		<para>Executes the <paramref name="command"/> and returns the number of rows affected.</para>
+	</summary>
+	<param name="command">
+		<para>The command that contains the query to execute.</para>
+	</param>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteNonQuery(System.Data.Common.DbCommand,System.Data.Common.DbTransaction)">
+	<summary>
+		<para>Executes the <paramref name="command"/> within the given <paramref name="transaction"/>, and returns the number of rows affected.</para>
+	</summary>
+	<param name="command">
+		<para>The command that contains the query to execute.</para>
+	</param>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteNonQuery(System.Data.Common.DbTransaction,System.String,System.Object[])">
+	<summary>
+		<para>Executes the <paramref name="storedProcedureName"/> using the given <paramref name="parameterValues"/> within a transaction and returns the number of rows affected.</para>
+	</summary>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<param name="storedProcedureName">
+		<para>The name of the stored procedure to execute.</para>
+	</param>
+	<param name="parameterValues">
+		<para>An array of parameters to pass to the stored procedure. The parameter values must be in call order as they appear in the stored procedure.</para>
+	</param>
+	<returns>
+		<para>The number of rows affected.</para>
+	</returns>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteNonQuery(System.Data.Common.DbTransaction,System.Data.CommandType,System.String)">
+	<summary>
+		<para>Executes the <paramref name="commandText"/> interpreted as specified by the <paramref name="commandType"/> as part of the given <paramref name="transaction"/> and returns the number of rows affected.</para>
+	</summary>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<param name="commandType">
+		<para>One of the <see cref="T:System.Data.CommandType"/> values.</para>
+	</param>
+	<param name="commandText">
+		<para>The command text to execute.</para>
+	</param>
+	<returns>
+		<para>The number of rows affected</para>
+	</returns>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteReader(System.String,System.Object[])">
+	<summary>
+		<para>Executes the <paramref name="storedProcedureName"/> with the given <paramref name="parameterValues"/> and returns an <see cref="T:System.Data.IDataReader"></see> through which the result can be read.
+ It is the responsibility of the caller to close the connection and reader when finished.</para>
+	</summary>
+	<param name="storedProcedureName">
+		<para>The command that contains the query to execute.</para>
+	</param>
+	<param name="parameterValues">
+		<para>An array of paramters to pass to the stored procedure. The parameter values must be in call order as they appear in the stored procedure.</para>
+	</param>
+	<returns>
+		<para>An <see cref="T:System.Data.IDataReader"/> object.</para>
+	</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteReader(System.Data.CommandType,System.String)">
+	<summary>
+		<para>Executes the <paramref name="commandText"/> interpreted as specified by the <paramref name="commandType"/> and returns an <see cref="T:System.Data.IDataReader"></see> through which the result can be read.
+ It is the responsibility of the caller to close the connection and reader when finished.</para>
+	</summary>
+	<param name="commandType">
+		<para>One of the <see cref="T:System.Data.CommandType"/> values.</para>
+	</param>
+	<param name="commandText">
+		<para>The command text to execute.</para>
+	</param>
+	<returns>
+		<para>An <see cref="T:System.Data.IDataReader"/> object.</para>
+	</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteReader(System.Data.Common.DbCommand)">
+	<summary>
+		<para>Executes the <paramref name="command"/> and returns an <see cref="T:System.Data.IDataReader"></see> through which the result can be read.
+ It is the responsibility of the caller to close the connection and reader when finished.</para>
+	</summary>
+	<param name="command">
+		<para>The command that contains the query to execute.</para>
+	</param>
+	<returns>
+		<para>An <see cref="T:System.Data.IDataReader"/> object.</para>
+	</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteReader(System.Data.Common.DbCommand,System.Data.Common.DbTransaction)">
+	<summary>
+		<para>Executes the <paramref name="command"/> within a transaction and returns an <see cref="T:System.Data.IDataReader"></see> through which the result can be read.
+ It is the responsibility of the caller to close the connection and reader when finished.</para>
+	</summary>
+	<param name="command">
+		<para>The command that contains the query to execute.</para>
+	</param>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<returns>
+		<para>An <see cref="T:System.Data.IDataReader"/> object.</para>
+	</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteReader(System.Data.Common.DbTransaction,System.String,System.Object[])">
+	<summary>
+		<para>Executes the <paramref name="storedProcedureName"/> with the given <paramref name="parameterValues"/> within the given <paramref name="transaction"/> and returns an <see cref="T:System.Data.IDataReader"></see> through which the result can be read.
+ It is the responsibility of the caller to close the connection and reader when finished.</para>
+	</summary>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<param name="storedProcedureName">
+		<para>The command that contains the query to execute.</para>
+	</param>
+	<param name="parameterValues">
+		<para>An array of paramters to pass to the stored procedure. The parameter values must be in call order as they appear in the stored procedure.</para>
+	</param>
+	<returns>
+		<para>An <see cref="T:System.Data.IDataReader"/> object.</para>
+	</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteReader(System.Data.Common.DbTransaction,System.Data.CommandType,System.String)">
+	<summary>
+		<para>Executes the <paramref name="commandText"/> interpreted as specified by the <paramref name="commandType"/> within the given 
+ <paramref name="transaction"/> and returns an <see cref="T:System.Data.IDataReader"></see> through which the result can be read.
+ It is the responsibility of the caller to close the connection and reader when finished.</para>
+	</summary>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<param name="commandType">
+		<para>One of the <see cref="T:System.Data.CommandType"/> values.</para>
+	</param>
+	<param name="commandText">
+		<para>The command text to execute.</para>
+	</param>
+	<returns>
+		<para>An <see cref="T:System.Data.IDataReader"/> object.</para>
+	</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteScalar(System.String,System.Object[])">
+	<summary>
+		<para>Executes the <paramref name="storedProcedureName"/> with the given <paramref name="parameterValues"/> and returns the first column of the first row in the result set returned by the query. Extra columns or rows are ignored.</para>
+	</summary>
+	<param name="storedProcedureName">
+		<para>The stored procedure to execute.</para>
+	</param>
+	<param name="parameterValues">
+		<para>An array of paramters to pass to the stored procedure. The parameter values must be in call order as they appear in the stored procedure.</para>
+	</param>
+	<returns>
+		<para>The first column of the first row in the result set.</para>
+	</returns>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteScalar(System.Data.CommandType,System.String)">
+	<summary>
+		<para>Executes the <paramref name="commandText"/> interpreted as specified by the <paramref name="commandType"/>  and returns the first column of the first row in the result set returned by the query. Extra columns or rows are ignored.</para>
+	</summary>
+	<param name="commandType">
+		<para>One of the <see cref="T:System.Data.CommandType"/> values.</para>
+	</param>
+	<param name="commandText">
+		<para>The command text to execute.</para>
+	</param>
+	<returns>
+		<para>The first column of the first row in the result set.</para>
+	</returns>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteScalar(System.Data.Common.DbCommand)">
+	<summary>
+		<para>Executes the <paramref name="command"/> and returns the first column of the first row in the result set returned by the query. Extra columns or rows are ignored.</para>
+	</summary>
+	<param name="command">
+		<para>The command that contains the query to execute.</para>
+	</param>
+	<returns>
+		<para>The first column of the first row in the result set.</para>
+	</returns>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteScalar(System.Data.Common.DbCommand,System.Data.Common.DbTransaction)">
+	<summary>
+		<para>Executes the <paramref name="command"/> within a <paramref name="transaction"/>, and returns the first column of the first row in the result set returned by the query. Extra columns or rows are ignored.</para>
+	</summary>
+	<param name="command">
+		<para>The command that contains the query to execute.</para>
+	</param>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<returns>
+		<para>The first column of the first row in the result set.</para>
+	</returns>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteScalar(System.Data.Common.DbTransaction,System.String,System.Object[])">
+	<summary>
+		<para>Executes the <paramref name="storedProcedureName"/> with the given <paramref name="parameterValues"/> within a 
+ <paramref name="transaction"/> and returns the first column of the first row in the result set returned by the query. Extra columns or rows are ignored.</para>
+	</summary>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<param name="storedProcedureName">
+		<para>The stored procedure to execute.</para>
+	</param>
+	<param name="parameterValues">
+		<para>An array of paramters to pass to the stored procedure. The parameter values must be in call order as they appear in the stored procedure.</para>
+	</param>
+	<returns>
+		<para>The first column of the first row in the result set.</para>
+	</returns>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.ExecuteScalar(System.Data.Common.DbTransaction,System.Data.CommandType,System.String)">
+	<summary>
+		<para>Executes the <paramref name="commandText"/> interpreted as specified by the <paramref name="commandType"/> 
+ within the given <paramref name="transaction"/> and returns the first column of the first row in the result set returned by the query. Extra columns or rows are ignored.</para>
+	</summary>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<param name="commandType">
+		<para>One of the <see cref="T:System.Data.CommandType"/> values.</para>
+	</param>
+	<param name="commandText">
+		<para>The command text to execute.</para>
+	</param>
+	<returns>
+		<para>The first column of the first row in the result set.</para>
+	</returns>
+	<seealso cref="M:System.Data.IDbCommand.ExecuteScalar"/>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.GetDataAdapter">
+	<summary>
+ Gets a DbDataAdapter with Standard update behavior.
+ </summary>
+	<returns>A <see cref="T:System.Data.Common.DbDataAdapter"/>.</returns>
+	<seealso cref="T:System.Data.Common.DbDataAdapter"/>
+	<devdoc>
+ Created this new, public method instead of modifying the protected, abstract one so that there will be no
+ breaking changes for any currently derived Database class.
+ </devdoc>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.GetInstrumentationEventProvider">
+	<summary>
+ Returns the object to which the instrumentation events have been delegated.
+ </summary>
+	<returns>Object to which the instrumentation events have been delegated.</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.GetParameterValue(System.Data.Common.DbCommand,System.String)">
+	<summary>
+ Gets a parameter value.
+ </summary>
+	<param name="command">The command that contains the parameter.</param>
+	<param name="name">The name of the parameter.</param>
+	<returns>The value of the parameter.</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.GetSqlStringCommand(System.String)">
+	<summary>
+		<para>Creates a <see cref="T:System.Data.Common.DbCommand"/> for a SQL query.</para>
+	</summary>
+	<param name="query"><para>The text of the query.</para></param>
+	<returns><para>The <see cref="T:System.Data.Common.DbCommand"/> for the SQL query.</para></returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.GetStoredProcCommand(System.String)">
+	<summary>
+		<para>Creates a <see cref="T:System.Data.Common.DbCommand"/> for a stored procedure.</para>
+	</summary>
+	<param name="storedProcedureName"><para>The name of the stored procedure.</para></param>
+	<returns><para>The <see cref="T:System.Data.Common.DbCommand"/> for the stored procedure.</para></returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.GetStoredProcCommand(System.String,System.Object[])">
+	<summary>
+		<para>Creates a <see cref="T:System.Data.Common.DbCommand"/> for a stored procedure.</para>
+	</summary>
+	<param name="storedProcedureName"><para>The name of the stored procedure.</para></param>
+	<param name="parameterValues"><para>The list of parameters for the procedure.</para></param>
+	<returns><para>The <see cref="T:System.Data.Common.DbCommand"/> for the stored procedure.</para></returns>
+	<remarks>
+		<para>The parameters for the stored procedure will be discovered and the values are assigned in positional order.</para>
+	</remarks>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.GetStoredProcCommandWithSourceColumns(System.String,System.String[])">
+	<summary>
+ Wraps around a derived class's implementation of the GetStoredProcCommandWrapper method and adds functionality for
+ using this method with UpdateDataSet.  The GetStoredProcCommandWrapper method (above) that takes a params array 
+ expects the array to be filled with VALUES for the parameters. This method differs from the GetStoredProcCommandWrapper 
+ method in that it allows a user to pass in a string array. It will also dynamically discover the parameters for the 
+ stored procedure and set the parameter's SourceColumns to the strings that are passed in. It does this by mapping 
+ the parameters to the strings IN ORDER. Thus, order is very important.
+ </summary>
+	<param name="storedProcedureName"><para>The name of the stored procedure.</para></param>
+	<param name="sourceColumns"><para>The list of DataFields for the procedure.</para></param>
+	<returns><para>The <see cref="T:System.Data.Common.DbCommand"/> for the stored procedure.</para></returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.LoadDataSet(System.String,System.Data.DataSet,System.String[],System.Object[])">
+	<summary>
+		<para>Loads a <see cref="T:System.Data.DataSet"/> with the results returned from a stored procedure.</para>
+	</summary>
+	<param name="storedProcedureName">
+		<para>The stored procedure name to execute.</para>
+	</param>
+	<param name="dataSet">
+		<para>The <see cref="T:System.Data.DataSet"/> to fill.</para>
+	</param>
+	<param name="tableNames">
+		<para>An array of table name mappings for the <see cref="T:System.Data.DataSet"/>.</para>
+	</param>
+	<param name="parameterValues">
+		<para>An array of paramters to pass to the stored procedure. The parameter values must be in call order as they appear in the stored procedure.</para>
+	</param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.LoadDataSet(System.Data.CommandType,System.String,System.Data.DataSet,System.String[])">
+	<summary>
+		<para>Loads a <see cref="T:System.Data.DataSet"/> from command text.</para>
+	</summary>
+	<param name="commandType">
+		<para>One of the <see cref="T:System.Data.CommandType"/> values.</para>
+	</param>
+	<param name="commandText">
+		<para>The command text to execute.</para>
+	</param>
+	<param name="dataSet">
+		<para>The <see cref="T:System.Data.DataSet"/> to fill.</para>
+	</param>
+	<param name="tableNames">
+		<para>An array of table name mappings for the <see cref="T:System.Data.DataSet"/>.</para>
+	</param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.LoadDataSet(System.Data.Common.DbCommand,System.Data.DataSet,System.String)">
+	<summary>
+		<para>Executes the <paramref name="command"/> and adds a new <see cref="T:System.Data.DataTable"></see> to the existing <see cref="T:System.Data.DataSet"></see>.</para>
+	</summary>
+	<param name="command">
+		<para>The <see cref="T:System.Data.Common.DbCommand"/> to execute.</para>
+	</param>
+	<param name="dataSet">
+		<para>The <see cref="T:System.Data.DataSet"/> to load.</para>
+	</param>
+	<param name="tableName">
+		<para>The name for the new <see cref="T:System.Data.DataTable"/> to add to the <see cref="T:System.Data.DataSet"/>.</para>
+	</param>
+	<exception cref="T:System.ArgumentNullException">Any input parameter was <see langword="null"/> (<b>Nothing</b> in Visual Basic)</exception>
+	<exception cref="T:System.ArgumentException">tableName was an empty string</exception>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.LoadDataSet(System.Data.Common.DbCommand,System.Data.DataSet,System.String,System.Data.Common.DbTransaction)">
+	<summary>
+		<para>Executes the <paramref name="command"/> within the given <paramref name="transaction"/> and adds a new <see cref="T:System.Data.DataTable"></see> to the existing <see cref="T:System.Data.DataSet"></see>.</para>
+	</summary>
+	<param name="command">
+		<para>The <see cref="T:System.Data.Common.DbCommand"/> to execute.</para>
+	</param>
+	<param name="dataSet">
+		<para>The <see cref="T:System.Data.DataSet"/> to load.</para>
+	</param>
+	<param name="tableName">
+		<para>The name for the new <see cref="T:System.Data.DataTable"/> to add to the <see cref="T:System.Data.DataSet"/>.</para>
+	</param>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command within.</para>
+	</param>
+	<exception cref="T:System.ArgumentNullException">Any input parameter was <see langword="null"/> (<b>Nothing</b> in Visual Basic).</exception>
+	<exception cref="T:System.ArgumentException">tableName was an empty string.</exception>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.LoadDataSet(System.Data.Common.DbCommand,System.Data.DataSet,System.String[])">
+	<summary>
+		<para>Loads a <see cref="T:System.Data.DataSet"/> from a <see cref="T:System.Data.Common.DbCommand"/>.</para>
+	</summary>
+	<param name="command">
+		<para>The command to execute to fill the <see cref="T:System.Data.DataSet"/>.</para>
+	</param>
+	<param name="dataSet">
+		<para>The <see cref="T:System.Data.DataSet"/> to fill.</para>
+	</param>
+	<param name="tableNames">
+		<para>An array of table name mappings for the <see cref="T:System.Data.DataSet"/>.</para>
+	</param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.LoadDataSet(System.Data.Common.DbCommand,System.Data.DataSet,System.String[],System.Data.Common.DbTransaction)">
+	<summary>
+		<para>Loads a <see cref="T:System.Data.DataSet"/> from a <see cref="T:System.Data.Common.DbCommand"/> in  a transaction.</para>
+	</summary>
+	<param name="command">
+		<para>The command to execute to fill the <see cref="T:System.Data.DataSet"/>.</para>
+	</param>
+	<param name="dataSet">
+		<para>The <see cref="T:System.Data.DataSet"/> to fill.</para>
+	</param>
+	<param name="tableNames">
+		<para>An array of table name mappings for the <see cref="T:System.Data.DataSet"/>.</para>
+	</param>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command in.</para>
+	</param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.LoadDataSet(System.Data.Common.DbTransaction,System.String,System.Data.DataSet,System.String[],System.Object[])">
+	<summary>
+		<para>Loads a <see cref="T:System.Data.DataSet"/> with the results returned from a stored procedure executed in a transaction.</para>
+	</summary>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the stored procedure in.</para>
+	</param>
+	<param name="storedProcedureName">
+		<para>The stored procedure name to execute.</para>
+	</param>
+	<param name="dataSet">
+		<para>The <see cref="T:System.Data.DataSet"/> to fill.</para>
+	</param>
+	<param name="tableNames">
+		<para>An array of table name mappings for the <see cref="T:System.Data.DataSet"/>.</para>
+	</param>
+	<param name="parameterValues">
+		<para>An array of paramters to pass to the stored procedure. The parameter values must be in call order as they appear in the stored procedure.</para>
+	</param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.LoadDataSet(System.Data.Common.DbTransaction,System.Data.CommandType,System.String,System.Data.DataSet,System.String[])">
+	<summary>
+		<para>Loads a <see cref="T:System.Data.DataSet"/> from command text in a transaction.</para>
+	</summary>
+	<param name="transaction">
+		<para>The <see cref="T:System.Data.IDbTransaction"/> to execute the command in.</para>
+	</param>
+	<param name="commandType">
+		<para>One of the <see cref="T:System.Data.CommandType"/> values.</para>
+	</param>
+	<param name="commandText">
+		<para>The command text to execute.</para>
+	</param>
+	<param name="dataSet">
+		<para>The <see cref="T:System.Data.DataSet"/> to fill.</para>
+	</param>
+	<param name="tableNames">
+		<para>An array of table name mappings for the <see cref="T:System.Data.DataSet"/>.</para>
+	</param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.SetParameterValue(System.Data.Common.DbCommand,System.String,System.Object)">
+	<summary>
+ Sets a parameter value.
+ </summary>
+	<param name="command">The command with the parameter.</param>
+	<param name="parameterName">The parameter name.</param>
+	<param name="value">The parameter value.</param>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.UpdateDataSet(System.Data.DataSet,System.String,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand,Microsoft.Practices.EnterpriseLibrary.Data.UpdateBehavior)">
+	<summary>
+		<para>Calls the respective INSERT, UPDATE, or DELETE statements for each inserted, updated, or deleted row in the <see cref="T:System.Data.DataSet"/>.</para>
+	</summary>
+	<param name="dataSet"><para>The <see cref="T:System.Data.DataSet"/> used to update the data source.</para></param>
+	<param name="tableName"><para>The name of the source table to use for table mapping.</para></param>
+	<param name="insertCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Added"/></para></param>
+	<param name="updateCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Modified"/></para></param>
+	<param name="deleteCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Deleted"/></para></param>
+	<param name="updateBehavior"><para>One of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Data.UpdateBehavior"/> values.</para></param>
+	<returns>number of records affected</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.UpdateDataSet(System.Data.DataSet,System.String,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand,Microsoft.Practices.EnterpriseLibrary.Data.UpdateBehavior,System.Nullable{System.Int32})">
+	<summary>
+		<para>Calls the respective INSERT, UPDATE, or DELETE statements for each inserted, updated, or deleted row in the <see cref="T:System.Data.DataSet"/>.</para>
+	</summary>
+	<param name="dataSet"><para>The <see cref="T:System.Data.DataSet"/> used to update the data source.</para></param>
+	<param name="tableName"><para>The name of the source table to use for table mapping.</para></param>
+	<param name="insertCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Added"/></para></param>
+	<param name="updateCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Modified"/></para></param>
+	<param name="deleteCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Deleted"/></para></param>
+	<param name="updateBehavior"><para>One of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Data.UpdateBehavior"/> values.</para></param>
+	<param name="updateBatchSize">The number of database commands to execute in a batch.</param>
+	<returns>number of records affected</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.UpdateDataSet(System.Data.DataSet,System.String,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbTransaction)">
+	<summary>
+		<para>Calls the respective INSERT, UPDATE, or DELETE statements for each inserted, updated, or deleted row in the <see cref="T:System.Data.DataSet"/> within a transaction.</para>
+	</summary>
+	<param name="dataSet"><para>The <see cref="T:System.Data.DataSet"/> used to update the data source.</para></param>
+	<param name="tableName"><para>The name of the source table to use for table mapping.</para></param>
+	<param name="insertCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Added"/>.</para></param>
+	<param name="updateCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Modified"/>.</para></param>
+	<param name="deleteCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Deleted"/>.</para></param>
+	<param name="transaction"><para>The <see cref="T:System.Data.IDbTransaction"/> to use.</para></param>
+	<returns>Number of records affected.</returns>
+</member><member name="M:Heon.Comun.Datos.CapaDatos.UpdateDataSet(System.Data.DataSet,System.String,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbCommand,System.Data.Common.DbTransaction,System.Nullable{System.Int32})">
+	<summary>
+		<para>Calls the respective INSERT, UPDATE, or DELETE statements for each inserted, updated, or deleted row in the <see cref="T:System.Data.DataSet"/> within a transaction.</para>
+	</summary>
+	<param name="dataSet"><para>The <see cref="T:System.Data.DataSet"/> used to update the data source.</para></param>
+	<param name="tableName"><para>The name of the source table to use for table mapping.</para></param>
+	<param name="insertCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Added"/>.</para></param>
+	<param name="updateCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Modified"/>.</para></param>
+	<param name="deleteCommand"><para>The <see cref="T:System.Data.Common.DbCommand"/> executed when <see cref="T:System.Data.DataRowState"/> is <seealso cref="F:System.Data.DataRowState.Deleted"/>.</para></param>
+	<param name="transaction"><para>The <see cref="T:System.Data.IDbTransaction"/> to use.</para></param>
+	<param name="updateBatchSize">The number of commands that can be executed in a single call to the database. Set to 0 to
+ use the largest size the server can handle, 1 to disable batch updates, and anything else to set the number of rows.
+ </param>
+	<returns>Number of records affected.</returns>
+</member><member name="F:Heon.Comun.Datos.clsConnectionsStringsDecrypter.ConnectionStringList">
+	<summary>
+ Diccionario con la lista de cadenas de conexión desencriptadas
+ </summary>
+</member><member name="F:Heon.Comun.Datos.clsConnectionsStringsDecrypter._cacheLiveTime">
+	<summary>
+ Tiempo de vida para el cache
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Heon.Comun.Datos.clsConnectionsStringsDecrypter.ti">
+	<summary>
+ Timer para el borrar el cache de las cadenas de conexión
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Heon.Comun.Datos.clsConnectionsStringsDecrypter.CacheLiveTime">
+	<summary>
+ Tiempo de vida del cache de cadenas de conexión en Minutos, El máximo tiempo de vida del cache es 12 horas
+ </summary>
+	<value>Nuevo Valor en Minutos.  El valor debe estar entre 0 y 720.  Si es 0 no se borra nunca el cache</value>
+	<returns>Valor Actual en minutos</returns>
+	<remarks></remarks>
+</member><member name="M:Heon.Comun.Datos.clsConnectionsStringsDecrypter.#ctor">
+	<summary>
+ Inicializa el cache de cadenas de conexión
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Heon.Comun.Datos.clsConnectionsStringsDecrypter.GetConnectionString(System.String,System.String)">
+	<summary>
+ Retorna una cadena de conexión.  Si no esta en el cache la solicita al servicio WCF, la desencripta
+ y la almacena en el cache para referencia futura
+ </summary>
+	<param name="Server">Servidor al cual hace referencia la cadena de conexión a retornar</param>
+	<param name="ModuleId">Modulo al cual hace referencia la cadena de conexión a retornar</param>
+	<returns>Cadena de conexión desencriptada</returns>
+	<remarks></remarks>
+</member><member name="M:Heon.Comun.Datos.clsConnectionsStringsDecrypter.DecryptConnectionString(System.String,System.String)">
+	<summary>
+ Solicita la cadena de conexión al WCF y la desencripta
+ </summary>
+	<param name="Server">Servidor al cual hace referencia la cadena de conexión a retornar</param>
+	<param name="ModuleId">Modulo al cual hace referencia la cadena de conexión a retornar</param>
+	<returns>Cadena de conexión desencriptada</returns>
+	<remarks></remarks>
+</member><member name="M:Heon.Comun.Datos.clsConnectionsStringsDecrypter.ToByteArray(System.String)">
+	<summary>
+ Convierte una cadena que representa números en Hexadecimal en un arreglo de bytes
+ </summary>
+	<param name="S">Cadena a ser convertida</param>
+	<returns>Arreglo de Bytes resultante</returns>
+</member><member name="M:Heon.Comun.Datos.clsConnectionsStringsDecrypter.TimerElapsed(System.Object,System.Timers.ElapsedEventArgs)">
+	<summary>
+ Delegado para administrar el evenpo Elapsed de timer
+ </summary>
+	<param name="sender">Objeto llamados</param>
+	<param name="e">Argumentos del evento</param>
+	<remarks></remarks>
+</member><member name="F:Heon.Comun.Datos.clsConnectionsStringsDecrypter.disposedValue">
+	<summary>
+ To detect redundant calls
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Heon.Comun.Datos.clsConnectionsStringsDecrypter">
+	<summary>
+ Clase que obtiene la cadena de conexión del servicio WCF de Cadenas de Conexión
+ Las desencripta y las maneja en un cache.
+ El cache se borra cada 30 Minutos por default, pero es configurable con la propiedad respectiva
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Heon.Comun.Datos.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Heon.Comun.Datos.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Heon.Comun.Datos.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>
